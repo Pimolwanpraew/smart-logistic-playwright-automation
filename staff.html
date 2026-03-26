@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Smart Logistic</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .form-section {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-bottom: 25px;
+            transition: all 0.3s;
+        }
+        .form-section:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: #cbd5e1;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-grid, .chart-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" style="background: #0f172a; border-bottom: 3px solid var(--primary);">
+        <div class="nav-brand">Staff Dashboard | Smart Logistic</div>
+        <ul class="nav-tabs">
+            <li><a href="index.html" class="staff-link" style="background: var(--accent); color: white;">← กลับหน้าผู้ใช้งาน</a></li>
+            <li><a href="#" onclick="handleLogout()" class="staff-link" style="background: #ef4444;">ออกจากระบบ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container-full section-padding" style="padding-top: 40px;">
+        <div class="text-center animate-slide-up">
+            <h2 class="section-title" style="margin-bottom: 10px;">ระบบจัดการพัสดุ (Management System)</h2>
+            <p class="section-title2" >จัดการข้อมูลพัสดุ ออกใบเสร็จ และอัปเดตสถานะการจัดส่ง</p>
+        </div>
+
+        <div class="dashboard-grid">
+            
+            <div class="card glass-card animate-slide-up" style="animation-delay: 0.1s; border-top: 5px solid var(--primary);">
+                <h3 style="color: var(--primary-dark); margin-bottom: 25px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                    สร้างรายการพัสดุใหม่
+                </h3>
+                
+                <div class="form-section">
+                    <div class="section-badge" style="background: #e0f2fe; color: #0284c7;">1. ข้อมูลผู้ส่ง (Sender)</div>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>ชื่อผู้ส่ง</label>
+                            <input type="text" id="senderName" placeholder="ระบุชื่อ-นามสกุล">
+                        </div>
+                        <div class="input-group">
+                            <label>เบอร์โทรศัพท์</label>
+                            <input type="text" id="senderPhone" placeholder="08x-xxx-xxxx">
+                        </div>
+                        <div class="input-group" style="grid-column: 1 / -1;">
+                            <label>ที่อยู่ผู้ส่ง</label>
+                            <textarea id="senderAddr" rows="2" placeholder="บ้านเลขที่, หมู่, ซอย, ถนน, ตำบล, อำเภอ, จังหวัด..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-badge" style="background: #ffedd5; color: #ea580c;">2. ข้อมูลผู้รับ (Receiver)</div>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>ชื่อผู้รับ</label>
+                            <input type="text" id="receiverName" placeholder="ระบุชื่อ-นามสกุล">
+                        </div>
+                        <div class="input-group">
+                            <label>เบอร์โทรศัพท์</label>
+                            <input type="text" id="receiverPhone" placeholder="08x-xxx-xxxx">
+                        </div>
+                        <div class="input-group" style="grid-column: 1 / -1;">
+                            <label>ที่อยู่จัดส่ง (ปลายทาง)</label>
+                            <textarea id="receiverAddr" rows="2" placeholder="บ้านเลขที่, หมู่, ซอย, ถนน, ตำบล, อำเภอ, จังหวัด..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary btn-large" style="width: 100%; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);" onclick="createParcel()">บันทึกและออกใบเสร็จรับเงิน</button>
+                <div id="newIDDisplay" style="margin-top: 25px;"></div>
+            </div>
+
+            <div class="card glass-card animate-slide-up" style="animation-delay: 0.2s; height: fit-content; border-top: 5px solid #10b981;">
+                <h3 style="color: #047857; margin-bottom: 20px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                    อัพเดตสถานะการจัดส่ง
+                </h3>
+                <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">สแกนหรือกรอกรหัสพัสดุเพื่อเปลี่ยนสถานะปัจจุบัน</p>
+
+                <div class="input-group" style="margin-bottom: 20px;">
+                    <label>รหัสพัสดุ (Tracking ID)</label>
+                    <input type="text" id="updateID" placeholder="" style="font-size: 1.3rem; font-weight: bold; text-align: center; letter-spacing: 2px; color: var(--text-main); background: #f1f5f9; border-color: #cbd5e1;">
+                </div>
+                
+                <div class="input-group" style="margin-bottom: 30px;">
+                    <label>สถานะล่าสุด</label>
+                    <select id="newStatus" style="font-size: 1.05rem; padding: 15px; cursor: pointer;">
+                        <option value="เข้ารับพัสดุแล้ว 🏭">🏭 เข้ารับพัสดุแล้ว</option>
+                        <option value="ศูนย์คัดแยกสินค้า 📦">📦 ถึงศูนย์คัดแยกสินค้า</option>
+                        <option value="อยู่ระหว่างการจัดส่ง 🚚">🚚 พนักงานกำลังนำจ่าย</option>
+                        <option value="พัสดุถึงปลายทางแล้ว ✅">✅ พัสดุถึงปลายทางแล้ว</option>
+                        <option value="พัสดุมีปัญหา/ตีกลับ ❌">❌ พัสดุมีปัญหา / นำจ่ายไม่สำเร็จ</option>
+                    </select>
+                </div>
+
+                <button class="btn-accent" style="width: 100%; background: #10b981; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); font-size: 1.1rem; padding: 15px;" onclick="updateStatus()">ยืนยันการอัพเดตสถานะ</button>
+                
+                <hr style="margin: 30px 0; border: 0; border-top: 1px dashed var(--border);">
+                
+                <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 15px; border-radius: 8px; color: #b45309; font-size: 0.9rem;">
+                    <b>💡 คำแนะนำเจ้าหน้าที่ :</b> โปรดตรวจสอบ "รหัสพัสดุ" ให้ถูกต้องทุกครั้งก่อนกดยืนยัน 
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin: 40px 0 20px 0; color: white; text-shadow: 1px 1px 5px rgba(0,0,0,0.5);">Dashboard ข้อมูลพัสดุ</h3>
+        <div class="chart-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            <div class="card glass-card animate-slide-up">
+                <h4 style="text-align: center; color: var(--text-muted); margin-bottom: 15px;">ปริมาณพัสดุรายวัน</h4>
+                <canvas id="parcelChart"></canvas>
+            </div>
+            <div class="card glass-card animate-slide-up" style="animation-delay: 0.1s;">
+                <h4 style="text-align: center; color: var(--text-muted); margin-bottom: 15px;">แนวโน้มรายได้</h4>
+                <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="card glass-card animate-slide-up" style="animation-delay: 0.2s;">
+                <h4 style="text-align: center; color: var(--text-muted); margin-bottom: 15px;">สัดส่วนสถานะพัสดุรวม</h4>
+                <canvas id="statusChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card glass-card animate-slide-up" style="margin-top: 30px; animation-delay: 0.3s;">
+            <h3 style="margin-bottom: 20px; color: var(--text-main); display: flex; justify-content: space-between; align-items: center;">
+                <span>รายการพัสดุล่าสุดในระบบ</span>
+                <button class="btn-primary" style="padding: 8px 15px; font-size: 0.9rem;" onclick="loadRecentParcels()">รีเฟรช</button>
+            </h3>
+            <div style="overflow-x: auto;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>เลขพัสดุ (Tracking)</th>
+                            <th>ผู้ส่ง</th>
+                            <th>ผู้รับ</th>
+                            <th>สถานะล่าสุด</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div> <script>
+        // ตรวจสอบ Login
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+    </div>
+
+    <script>
+        // ตรวจสอบ Login
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

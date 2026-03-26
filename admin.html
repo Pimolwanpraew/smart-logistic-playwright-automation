@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - เพิ่มพัสดุใหม่</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h2 style="color: #1e293b;">📦 ลงทะเบียนพัสดุ</h2>
+        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 20px;">เพิ่มข้อมูลพัสดุใหม่เข้าระบบ</p>
+    </header>
+
+    <div class="form-group" style="text-align: left;">
+        <label>เลขพัสดุ</label>
+        <input type="text" id="trackID" placeholder="เช่น T1001">
+        
+        <label>ชื่อผู้ส่ง</label>
+        <input type="text" id="sender" placeholder="ชื่อ-นามสกุล ผู้ส่ง">
+        
+        <label>ชื่อผู้รับ (ลูกค้า)</label>
+        <input type="text" id="customer" placeholder="ชื่อ-นามสกุล ผู้รับ">
+        
+        <label>ที่อยู่จัดส่ง</label>
+        <input type="text" id="address" placeholder="บ้านเลขที่, ถนน, จังหวัด">
+    </div>
+
+    <button onclick="addParcel()" style="margin-top: 15px;">บันทึกข้อมูล</button>
+    
+    <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+    <a href="index.html" style="color: #64748b; text-decoration: none; font-size: 0.85rem;">← กลับหน้าติดตามพัสดุ</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

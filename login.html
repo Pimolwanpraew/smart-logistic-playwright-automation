@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Login - Smart Logistic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+
+    <div class="container-full" style="max-width: 450px; width: 90%;">
+        <div class="card glass-card animate-slide-up" style="text-align: center; border-top: 5px solid var(--primary);">
+            <div style="margin-bottom: 25px;">
+                <i class="fas fa-user-shield" style="font-size: 3rem; color: var(--primary);"></i>
+                <h2 style="margin-top: 15px; color: var(--text-main);">เจ้าหน้าที่เข้าสู่ระบบ</h2>
+                <p style="color: var(--text-muted);">กรุณากรอกรหัสพนักงานเพื่อจัดการระบบ</p>
+            </div>
+
+            <div class="form-grid-single" style="text-align: left;">
+                <div class="input-group">
+                    <label><i class="fas fa-user"></i> ชื่อผู้ใช้งาน</label>
+                    <input type="text" id="username" placeholder="Username">
+                </div>
+                <div class="input-group" style="margin-top: 15px;">
+                    <label><i class="fas fa-lock"></i> รหัสผ่าน</label>
+                    <input type="password" id="password" placeholder="Password">
+                </div>
+            </div>
+
+            <button class="btn-primary-glow" style="width: 100%; margin-top: 30px; padding: 15px;" onclick="handleLogin()">
+                เข้าสู่ระบบ <i class="fas fa-sign-in-alt"></i>
+            </button>
+
+            <div style="margin-top: 20px;">
+                <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">
+                    ← กลับหน้าหลัก
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

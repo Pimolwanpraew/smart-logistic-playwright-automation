@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Logistic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">Smart Logistic</div>
+        <ul class="nav-tabs">
+            <li class="tab-link active" onclick="switchTab('tab-about', this)">หน้าแรก</li>
+            <li class="tab-link" onclick="switchTab('tab-track', this)">เช็คพัสดุ</li>
+            <li class="tab-link" onclick="switchTab('tab-rates', this)">เช็คราคาจัดส่ง</li>
+            <li class="tab-link" onclick="switchTab('tab-support', this)">ติดต่อเรา (แจ้งปัญหา)</li>
+            <li><a href="login.html" class="staff-link">สำหรับเจ้าหน้าที่</a></li>
+        </ul>
+    </nav>
+
+    <section id="tab-about" class="tab-content active animate-fade-in">
+        <div class="hero-section">
+            <div class="hero-content animate-slide-up">
+                <h1>Smart Logistic Express</h1>
+                <p>เชื่อมต่อทุกความรู้สึก ส่งตรงถึงมือคุณด้วยมาตรฐานสากล</p>
+                <div class="hero-stats">
+                    <div class="stat-item"><span>1</span><p>เดียวในไทย</p></div>
+                    <div class="stat-item"><span>77</span><p>จังหวัดทั่วไทย</p></div>
+                    <div class="stat-item"><span>24/7</span><p>ดูแลไม่หยุดพัก</p></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-full">
+            <div class="card glass-card about-grid">
+                <div class="about-text animate-slide-up">
+                    <span class="badge">About Us</span>
+                    <h2 class="title-dark">เราคือผู้นำด้านเทคโนโลยีการขนส่ง</h2>
+                    <p>ด้วยประสบการณ์การให้บริการที่ครอบคลุมทั่วประเทศ เราพัฒนาระบบการจัดส่งที่แม่นยำที่สุดเพื่อให้มั่นใจว่าพัสดุของคุณจะถึงที่หมายอย่างปลอดภัย</p>
+                    <div class="value-grid">
+                        <div class="value-item">
+                            <i class="fas fa-shipping-fast"></i>
+                            <div>
+                                <h4>Express Delivery</h4>
+                                <p>จัดส่งรวดเร็วทันใจภายใน 24 ชม.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Safe & Secure</h4>
+                                <p>รับประกันสินค้าสูญหายหรือเสียหายเพื่อความสบายใจของคุณ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image animate-slide-up">
+                    <img src="banner02.jpg" alt="Warehouse Operation">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-full section-padding" style="padding-top: 0;">
+            <div class="text-center animate-slide-up">
+                <span class="badge" style="background: #fef3c7; color: #d97706;">Our Services</span>
+                <h2 class="section-title">บริการขนส่งที่ครบวงจร</h2>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 40px;">ตอบโจทย์ทุกธุรกิจและบุคคลทั่วไป ด้วยบริการที่หลากหลาย</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-slide-up">
+                    <div class="icon-wrapper"><i class="fas fa-truck-fast"></i></div>
+                    <h3>จัดส่งด่วนพิเศษ (Express)</h3>
+                    <p>พัสดุถึงมือผู้รับภายในวันถัดไป (Next Day Delivery) ครอบคลุมพื้นที่กรุงเทพฯ และปริมณฑล</p>
+                </div>
+                <div class="service-card animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="icon-wrapper"><i class="fas fa-box-open"></i></div>
+                    <h3>รับพัสดุถึงที่ (Door to Door)</h3>
+                    <p>สะดวกสบายยิ่งขึ้นด้วยบริการเรียกรถเข้ารับพัสดุถึงหน้าบ้านคุณ ฟรี! ไม่มีขั้นต่ำ</p>
+                </div>
+                <div class="service-card animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="icon-wrapper"><i class="fas fa-hand-holding-dollar"></i></div>
+                    <h3>เก็บเงินปลายทาง (COD)</h3>
+                    <p>เพิ่มโอกาสในการขาย ด้วยบริการเก็บเงินปลายทางที่ปลอดภัย โอนเงินคืนร้านค้าไวใน 1 วันทำการ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tab-track" class="tab-content">
+        <div class="container-full section-padding">
+            <div class="track-pro-layout animate-slide-up">
+                
+                <div class="track-pro-content">
+                    <span class="badge" style="background: #e0f2fe; color: #0284c7; padding: 8px 15px;">
+                        <i class="fas fa-satellite-dish" style="margin-right: 5px;"></i> Real-Time Tracking
+                    </span>
+                    <h2 class="title-dark" style="font-size: 2.5rem; margin-top: 15px; letter-spacing: -0.5px;">ตรวจสอบสถานะพัสดุ</h2>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6;">
+                        อัปเดตทุกการเคลื่อนไหวของพัสดุคุณตลอด 24 ชั่วโมง มั่นใจได้ว่าสินค้าถึงมืออย่างปลอดภัยและตรงเวลา
+                    </p>
+                    
+                    <div class="search-box-pro">
+                        <div class="input-wrapper">
+                            <i class="fas fa-barcode"></i>
+                            <input type="text" id="searchID" placeholder="กรอกหมายเลข Tracking (เช่น T123456)">
+                        </div>
+                        <button class="btn-track-pro" onclick="searchParcel()">
+                            ค้นหาพัสดุ <i class="fas fa-arrow-right" style="margin-left: 5px;"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="track-features">
+                        <div class="feature"><i class="fas fa-check-circle"></i> ข้อมูลแม่นยำ</div>
+                        <div class="feature"><i class="fas fa-bolt"></i> อัปเดตไว</div>
+                        <div class="feature"><i class="fas fa-shield-alt"></i> ปลอดภัย 100%</div>
+                    </div>
+                </div>
+                
+                <div class="track-pro-image animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="image-wrapper">
+                        <img src="banner01.jpg" alt="Track your parcel">
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+            <div id="result" class="result-container" style="margin-top: 40px;"></div>
+        </div>
+    </section>
+
+    <section id="tab-rates" class="tab-content">
+        <div class="container-full section-padding">
+            <div class="text-center animate-slide-up" style="margin-bottom: 30px;">
+                <span class="badge" style="background: #e0f2fe; color: #0284c7;">Shipping Calculator</span>
+                <h2 class="section-title">ประเมินค่าจัดส่งเบื้องต้น</h2>
+                <p style="color: rgba(255,255,255,0.8);">คำนวณราคาได้ง่ายๆ ก่อนส่งจริง</p>
+            </div>
+            
+            <div class="card glass-card rate-layout animate-slide-up" style="box-shadow: var(--shadow-premium); border-radius: 20px; padding: 0; overflow: hidden;">
+                <div class="rate-form-area" style="padding: 40px;">
+                    <h3 style="color: var(--text-main); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; font-size: 1.4rem;">
+                        <i class="fas fa-calculator" style="color: var(--primary);"></i> ข้อมูลพัสดุ
+                    </h3>
+                    
+                    <div class="form-grid-single">
+                        <div class="input-group">
+                            <label><i class="fas fa-map-marker-alt" style="color: #ef4444;"></i> จังหวัดต้นทาง</label>
+                            <input type="text" id="rateOrigin" placeholder="เช่น กรุงเทพมหานคร" class="modern-input">
+                        </div>
+                        <div class="input-group">
+                            <label><i class="fas fa-map-pin" style="color: #10b981;"></i> จังหวัดปลายทาง</label>
+                            <input type="text" id="rateDest" placeholder="เช่น เชียงใหม่" class="modern-input">
+                        </div>
+                        <div class="form-row-2">
+                            <div class="input-group">
+                                <label><i class="fas fa-weight-hanging" style="color: #f59e0b;"></i> น้ำหนัก (กก.)</label>
+                                <input type="number" id="rateWeight" placeholder="0.0" min="0.1" step="0.1" class="modern-input">
+                            </div>
+                            <div class="input-group">
+                                <label><i class="fas fa-box" style="color: #6366f1;"></i> ขนาดพัสดุ</label>
+                                <select id="rateSize" class="modern-input">
+                                    <option value="small">เล็ก (S)</option>
+                                    <option value="medium">กลาง (M)</option>
+                                    <option value="large">ใหญ่ (L)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-accent-glow" onclick="calculateRate()" style="font-size: 1.1rem; padding: 18px; margin-top: 30px; box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);">
+                        <i class="fas fa-coins"></i> คำนวณราคาเลย
+                    </button>
+                    <div id="rateResult" style="margin-top: 25px;"></div>
+                </div>
+                
+                <div class="rate-map-area">
+                    <div class="map-placeholder">
+                        <img src="thai.png" alt="Thailand Map">
+                        <div class="map-overlay">
+                            <div style="background: rgba(15, 23, 42, 0.8); padding: 30px; border-radius: 20px; backdrop-filter: blur(5px);">
+                                <i class="fas fa-route" style="font-size: 3rem; color: var(--accent); margin-bottom: 15px;"></i>
+                                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">ครอบคลุมทั่วไทย</h3>
+                                <p style="font-size: 1.1rem; color: #cbd5e1;">บริการจัดส่งถึงหน้าบ้านทั้ง 77 จังหวัด</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tab-support" class="tab-content">
+        <div class="container-full section-padding">
+            <div class="card glass-card animate-slide-up chat-container" style="border-radius: 20px; box-shadow: var(--shadow-premium);">
+                <div class="chat-header-v2">
+                    <div class="bot-avatar"><i class="fas fa-robot"></i></div>
+                    <div class="bot-info">
+                        <h3>น้องสมาร์ท (Smart Bot)</h3>
+                        <p><span class="online-dot"></span> พร้อมให้บริการ 24 ชม.</p>
+                    </div>
+                </div>
+                <div id="chatBox" class="chat-box-v2">
+                    <div class="chat-msg bot-msg">
+                        <div class="msg-content">สวัสดีครับ! น้องสมาร์ทยินดีให้บริการ 😊<br>สามารถพิมพ์ "เลขพัสดุ" เพื่อเช็คสถานะ หรือเลือกเมนูด้านล่างได้เลยครับ</div>
+                        <div class="msg-time">ตอนนี้</div>
+                    </div>
+                </div>
+                <div class="quick-replies-v2">
+                    <button class="qr-btn" onclick="sendQuickReply('เช็คสถานะพัสดุ')">📦 เช็คพัสดุ</button>
+                    <button class="qr-btn" onclick="sendQuickReply('พัสดุมีปัญหา/ล่าช้า')">⚠️ แจ้งปัญหา</button>
+                    <button class="qr-btn" onclick="sendQuickReply('ติดต่อเจ้าหน้าที่')">📞 คุยกับคน</button>
+                </div>
+                <div class="chat-input-area-v2">
+                    <button class="attach-btn"><i class="fas fa-paperclip"></i></button>
+                    <input type="text" id="chatInput" placeholder="พิมพ์ข้อความที่นี่..." onkeypress="handleChatKeyPress(event)">
+                    <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
